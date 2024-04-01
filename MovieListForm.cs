@@ -18,10 +18,11 @@ namespace MovieListingApp
         }
         private void LoadMovies()
         {
-            StreamWriter outputFile;
-            outputFile = File.CreateText("movies.txt");
-            outputFile = File.AppendText("movies.txt");
-            outputFile.WriteLine(movieListBox);
+            StreamReader outputFile;
+            outputFile = File.OpenText("movies.txt");
+            string movies = outputFile.ReadToEnd();
+            string movie = outputFile.ReadLine();
+            movieListBox.Items.Add(movies);
         }
         private void MovieListForm_Load(object sender, EventArgs e)
         {
@@ -31,30 +32,6 @@ namespace MovieListingApp
         private void exitButton_Click(object sender, EventArgs e)
         {
             Application.Exit();
-        }
-
-        private void movieListBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string movie = movieListBox.SelectedItem.ToString();
-            switch (movie)
-            {
-
-                case "Bad Boys for Life":
-                    titleTB.Text = "Bad Boys for Life";
-                    break;
-                case "Click":
-                    titleTB.Text = "Click";
-                    break;
-                case "Despicable Me":
-                    titleTB.Text = "Despicable Me";
-                    break;
-                case "Inception":
-                    titleTB.Text = "Inception";
-                    break;
-                case "The Matrix":
-                    titleTB.Text = "The Matrix";
-                    break;
-            }
         }
         private void rateButton_Click(object sender, EventArgs e)
         {
@@ -67,12 +44,18 @@ namespace MovieListingApp
         {
             NewMovieForm newMovieForm = new NewMovieForm();
             newMovieForm.Show();
+            this.Close();
         }
 
         private void favoriteButton_Click(object sender, EventArgs e)
         {
             FavoritesForm favoritesForm = new FavoritesForm();
             favoritesForm.Show();
+        }
+
+        private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
+        {
+
         }
     }
 }

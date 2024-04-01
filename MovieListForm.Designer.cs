@@ -53,6 +53,7 @@
             yearCheckBox = new CheckBox();
             genreCheckBox = new CheckBox();
             label2 = new Label();
+            openFileDialog1 = new OpenFileDialog();
             searchGroup.SuspendLayout();
             filterGroup.SuspendLayout();
             SuspendLayout();
@@ -66,7 +67,6 @@
             movieListBox.Name = "movieListBox";
             movieListBox.Size = new Size(120, 94);
             movieListBox.TabIndex = 0;
-            movieListBox.SelectedIndexChanged += movieListBox_SelectedIndexChanged;
             // 
             // titleLabel
             // 
@@ -285,6 +285,11 @@
             label2.Size = new Size(100, 23);
             label2.TabIndex = 7;
             // 
+            // openFileDialog1
+            // 
+            openFileDialog1.FileName = "openFileDialog1";
+            openFileDialog1.FileOk += openFileDialog1_FileOk;
+            // 
             // MovieListForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -348,5 +353,6 @@
         private CheckBox yearCheckBox;
         private CheckBox genreCheckBox;
         private Label label2;
+        private OpenFileDialog openFileDialog1;
     }
 }

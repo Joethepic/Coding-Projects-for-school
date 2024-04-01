@@ -29,30 +29,23 @@ namespace MovieListingApp
             loginForm.Show();
             Application.Exit();
         }
-        public void RegisterUserUN(object sender, EventArgs e)
+        public void RegisterUserUN()
         {
-            try 
-            {
-             
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Invalid login");
-            }
-        }
-        private void RegisterUserPW(object senderm, EventArgs e)
-        {
-            try
-            {
+                string username = usernameTB.Text;
+                string filename = saveFileDialog1.FileName;
                 StreamWriter outputFile;
-                outputFile = File.CreateText("passw.txt");
-                outputFile.WriteLine(passwordTB.Text);
+                outputFile = File.CreateText("username.txt");
+                outputFile.WriteLine(username);
                 outputFile.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Invalid login");
-            }
+        }
+        private void RegisterUserPW()
+        {
+                string password = passwordTB.Text;
+                string filename = saveFileDialog1.FileName;
+                StreamWriter outputFile;
+                outputFile = File.AppendText("password.txt");
+                outputFile.WriteLine(password);
+                outputFile.Close();
         }
         private void resetButton_Click(object sender, EventArgs e)
         {
@@ -61,6 +54,12 @@ namespace MovieListingApp
             emailTB.Text = "";
             usernameTB.Text = "";
             passwordTB.Text = "";
+        }
+
+        private void registerButton_Click(object sender, EventArgs e)
+        {
+            RegisterUserUN();
+            RegisterUserPW();
         }
     }
 }

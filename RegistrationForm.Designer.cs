@@ -46,7 +46,6 @@ namespace MovieListingApp
             emailTB = new TextBox();
             firstnameTB = new TextBox();
             saveFileDialog1 = new SaveFileDialog();
-            openFileDialog1 = new OpenFileDialog();
             SuspendLayout();
             // 
             // exitButton
@@ -67,6 +66,7 @@ namespace MovieListingApp
             registerButton.TabIndex = 15;
             registerButton.Text = "Register";
             registerButton.UseVisualStyleBackColor = true;
+            registerButton.Click += registerButton_Click;
             // 
             // resetButton
             // 
@@ -178,10 +178,6 @@ namespace MovieListingApp
             firstnameTB.Size = new Size(100, 23);
             firstnameTB.TabIndex = 23;
             // 
-            // openFileDialog1
-            // 
-            openFileDialog1.FileName = "openFileDialog1";
-            // 
             // RegistrationForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -226,6 +222,5 @@ namespace MovieListingApp
         private TextBox emailTB;
         private TextBox firstnameTB;
         private SaveFileDialog saveFileDialog1;
-        private OpenFileDialog openFileDialog1;
     }
 }

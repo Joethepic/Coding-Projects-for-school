@@ -42,6 +42,7 @@
             titleLabel = new Label();
             addButton = new Button();
             exitButton = new Button();
+            saveFileDialog1 = new SaveFileDialog();
             SuspendLayout();
             // 
             // descriptionLabel
@@ -149,6 +150,7 @@
             addButton.TabIndex = 36;
             addButton.Text = "Add";
             addButton.UseVisualStyleBackColor = true;
+            addButton.Click += addButton_Click;
             // 
             // exitButton
             // 
@@ -200,5 +202,6 @@
         private Label titleLabel;
         private Button addButton;
         private Button exitButton;
+        private SaveFileDialog saveFileDialog1;
     }
 }

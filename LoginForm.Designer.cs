@@ -34,7 +34,7 @@
             usernameTB = new TextBox();
             passwordTB = new TextBox();
             loginButton = new Button();
-            resetButton = new Button();
+            ResetButton = new Button();
             registerButton = new Button();
             exitButton = new Button();
             openFileDialog1 = new OpenFileDialog();
@@ -92,15 +92,15 @@
             loginButton.UseVisualStyleBackColor = true;
             loginButton.Click += loginButton_Click;
             // 
-            // resetButton
+            // ResetButton
             // 
-            resetButton.Location = new Point(404, 336);
-            resetButton.Name = "resetButton";
-            resetButton.Size = new Size(75, 23);
-            resetButton.TabIndex = 6;
-            resetButton.Text = "Reset Form";
-            resetButton.UseVisualStyleBackColor = true;
-            resetButton.Click += resetButton_Click;
+            ResetButton.Location = new Point(404, 336);
+            ResetButton.Name = "ResetButton";
+            ResetButton.Size = new Size(75, 23);
+            ResetButton.TabIndex = 6;
+            ResetButton.Text = "Reset Form";
+            ResetButton.UseVisualStyleBackColor = true;
+            ResetButton.Click += ResetButton_Click;
             // 
             // registerButton
             // 
@@ -122,11 +122,6 @@
             exitButton.UseVisualStyleBackColor = true;
             exitButton.Click += exitButton_Click;
             // 
-            // openFileDialog1
-            // 
-            openFileDialog1.FileName = "openFileDialog1";
-            openFileDialog1.FileOk += openFileDialog1_FileOk;
-            // 
             // LoginForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -134,7 +129,7 @@
             ClientSize = new Size(800, 450);
             Controls.Add(exitButton);
             Controls.Add(registerButton);
-            Controls.Add(resetButton);
+            Controls.Add(ResetButton);
             Controls.Add(loginButton);
             Controls.Add(passwordTB);
             Controls.Add(usernameTB);
@@ -154,7 +149,7 @@
         private TextBox usernameTB;
         private TextBox passwordTB;
         private Button loginButton;
-        private Button resetButton;
+        private Button ResetButton;
         private Button registerButton;
         private Button exitButton;
         private OpenFileDialog openFileDialog1;

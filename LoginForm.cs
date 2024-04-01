@@ -1,3 +1,5 @@
+using MovieListingApp;
+using System.Drawing.Text;
 using System.Windows.Forms;
 
 namespace MovieListingApp
@@ -15,20 +17,24 @@ namespace MovieListingApp
         {
             this.Close();
         }
-
-        private void loginButton_Click(object sender, EventArgs e)
+        private void Login()
         {
             try
             {
                 StreamReader inputFileun;
-                inputFileun = File.OpenText("users.txt");
+                inputFileun = File.OpenText("username.txt");
+                string username = inputFileun.ReadToEnd();
+                inputFileun.Close();
                 StreamReader inputFilepw;
-                inputFilepw = File.OpenText("passw.txt");
+                inputFilepw = File.OpenText("password.txt");
+                string password = inputFilepw.ReadToEnd();
+                inputFilepw.Close();
                 string usernameTextB = usernameTB.Text;
                 string passwordTextB = passwordTB.Text;
-                if (usernameTB == inputFileun) 
-                { 
-                
+                if (usernameTextB == username && passwordTextB == password)
+                {
+                    MovieListForm listForm = new MovieListForm();
+                    listForm.Show();
                 }
             }
             catch (Exception ex)
@@ -36,13 +42,18 @@ namespace MovieListingApp
                 MessageBox.Show("Either your username or password was entered incorrectly; please try again.");
             }
         }
+
+        private void loginButton_Click(object sender, EventArgs e)
+        {
+            Login();
+        }
         private void registerButton_Click(object sender, EventArgs e)
         {
             RegistrationForm registrationForm = new RegistrationForm();
             registrationForm.Show();
         }
 
-        private void resetButton_Click(object sender, EventArgs e)
+        public void ResetButton_Click(object sender, EventArgs e)
         {
             usernameTB.Text = "";
             passwordTB.Text = "";

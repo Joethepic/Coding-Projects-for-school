@@ -17,24 +17,37 @@ namespace MovieListingApp
         {
             InitializeComponent();
         }
-        
-            private void Add Movie() 
+
+        private void AddMovie()
+        {
+            // This allows you to add to add movie to the movie list
+            //try
+            //{
+                string filename = ("movies.txt");
+                var inputFile = new StreamWriter(filename);
+                inputFile = File.AppendText(filename);
+                string title = titleTB.Text;
+                string genre = genreTB.Text;
+                string year = yearTB.Text;
+                string duration = durationTB.Text;
+                string description = descriptionTB.Text;
+                string rating = ratingTB.Text;
+                inputFile.WriteLine(title + "," + genre + "," + year + "," + duration + "," + description + "," + rating);
+            //}
+            /*catch (Exception)
             {
-            StreamWriter inputFile;
-            inputFile = File.CreateText("movies.txt");
-            string title = titleTB.Text;
-            inputFile = File.AppendText(title + ",");
-            inputFile.Close();
-            string genre = genreTB.Text;
-            inputFile = File.AppendText(genre);
-            inputFile.Close();
-            string year = yearTB.Text;
-            inputFile = File.AppendText(year);
-            string duration = durationTB.Text;
-            inputFile = File.AppendText(duration);
-            string description = descriptionTB.Text;
-            inputFile = File.AppendText(description);
+                MessageBox.Show("An error has occured");
+            }*/
             }
 
+        private void addButton_Click(object sender, EventArgs e)
+        {
+            AddMovie();
+        }
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
